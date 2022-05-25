@@ -1,0 +1,7 @@
+/home/benito/Documents/Geant4_Tutorial/minimal/build/CMakeFiles/install/strip.dir
+/home/benito/Documents/Geant4_Tutorial/minimal/build/CMakeFiles/install/local.dir
+/home/benito/Documents/Geant4_Tutorial/minimal/build/CMakeFiles/install.dir
+/home/benito/Documents/Geant4_Tutorial/minimal/build/CMakeFiles/list_install_components.dir
+/home/benito/Documents/Geant4_Tutorial/minimal/build/CMakeFiles/rebuild_cache.dir
+/home/benito/Documents/Geant4_Tutorial/minimal/build/CMakeFiles/edit_cache.dir
+/home/benito/Documents/Geant4_Tutorial/minimal/build/CMakeFiles/minimal.dir
