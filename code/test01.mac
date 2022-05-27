@@ -1,13 +1,27 @@
 # test01
 #
 /run/initialize
-#
-/gps/particle e-
+
+/gps/particle alpha
 
 /gps/pos/type Point
-/gps/pos/centre 1. 2. 1. cm
-/gps/ang/type iso
-/gps/energy 2. MeV
+/gps/pos/centre 0. 0. 0. cm
+#/gps/ang/type iso
+/gps/direction 1 0 0
+/gps/energy 10. MeV
+#
+/gps/particle alpha
+
+/gps/pos/type Point
+/gps/pos/centre 0. 0. 0. cm
+#/gps/ang/type iso
+/gps/direction 1 0 0
+/gps/energy 5. MeV
 
 
-/run/beamOn 10
+
+#########################
+#
+
+
+/run/beamOn 3

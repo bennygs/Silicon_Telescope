@@ -141,24 +141,28 @@ G4Material* Ge_mat = G4NistManager::Instance()->FindOrBuildMaterial("G4_Ge");
 
   // Distance from the center
 
-  G4double r_0 = 40.*cm;
+  G4double r_0 = 11.*cm;
 
   //define a rotation matrix
-  G4double tetha  =   pi/2.*rad;
-  G4double phi    =   pi/4.*rad;
+  /*G4double tetha  =   pi/2.*rad;
+  G4double phi    =   pi/4.*rad;*/
 
-	G4RotationMatrix* myRotationMatrix = new G4RotationMatrix();
+	/*G4RotationMatrix* myRotationMatrix = new G4RotationMatrix();
 	myRotationMatrix ->  rotateX(tetha/2.);
   myRotationMatrix ->  rotateY(-tetha/2.);
-  myRotationMatrix ->  rotateZ(phi);
+  myRotationMatrix ->  rotateZ(phi);*/
 
 
   // define a translation vector
-  G4ThreeVector posCry = G4ThreeVector( r_0*sin(tetha)*cos(phi),
+  /*G4ThreeVector posCry = G4ThreeVector( r_0*sin(tetha)*cos(phi),
                                         r_0*sin(tetha)*sin(phi),
-                                        r_0*cos(phi) );
+                                        r_0*cos(phi) );*/
 
-  new G4PVPlacement(  myRotationMatrix,             //no rotation
+G4ThreeVector posCry = G4ThreeVector( r_0,
+                                      0.,
+                                      0.);
+
+  new G4PVPlacement(  0,             //no rotation
                       posCry,         //at (0,0,0)
                       cryLogic,                //its logical volume
                       "cry",              //its name

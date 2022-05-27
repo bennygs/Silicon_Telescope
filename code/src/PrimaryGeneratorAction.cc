@@ -47,17 +47,17 @@
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 PrimaryGeneratorAction::PrimaryGeneratorAction()
-: G4VUserPrimaryGeneratorAction(),
-  fParticleGun(0)
+/*: G4VUserPrimaryGeneratorAction(),
+  fParticleGun(0)*/
 {
 	//defining a GPS (it is used in batch mode)
-  //  fGPS = new G4GeneralParticleSource();
+    fGPS = new G4GeneralParticleSource();
 
 
 // Definition of a 60Co source
 
 // Gamma 1.173228 MeV
-  G4int n_particle = 1;
+/*  G4int n_particle = 1;
   fParticleGun  = new G4ParticleGun(n_particle);
 
   G4double size_x = 5.*cm;
@@ -68,7 +68,7 @@ PrimaryGeneratorAction::PrimaryGeneratorAction()
   G4double y0 = size_y * G4UniformRand();
   G4double z0 = size_z * G4UniformRand();
 
-  fParticleGun->SetParticlePosition(G4ThreeVector(x0,y0,z0));
+  fParticleGun->SetParticlePosition(G4ThreeVector(x0,y0,z0));*/
 
 }
 
@@ -76,8 +76,8 @@ PrimaryGeneratorAction::PrimaryGeneratorAction()
 
 PrimaryGeneratorAction::~PrimaryGeneratorAction()
 {
-	//delete fGPS;
-  delete fParticleGun;
+	delete fGPS;
+  /*delete fParticleGun;*/
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -89,7 +89,7 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
   //  G4double mom_y = 1.-2.*G4UniformRand();
   //  G4double mom_z = 1.-2.*G4UniformRand();
 
-  G4double mom_x =1.;
+  /*G4double mom_x =1.;
   G4double mom_y =1.;
   G4double mom_z =1.;
 
@@ -99,8 +99,6 @@ G4double E_1 = G4RandGauss::shoot( 1173.228, 2 ) * keV;
 // Second gamma
 G4double E_2 = G4RandGauss::shoot( 1332.492, 2 ) * keV;
 
-
-	//fGPS->GeneratePrimaryVertex(anEvent);
 
   // default particle kinematic
   G4ParticleTable* particleTable = G4ParticleTable::GetParticleTable();
@@ -120,7 +118,10 @@ G4double E_2 = G4RandGauss::shoot( 1332.492, 2 ) * keV;
     fParticleGun->SetParticleDefinition(gamma_2);
     fParticleGun->SetParticleEnergy(E_2);
     fParticleGun->SetParticleMomentumDirection(G4ThreeVector(mom_x,mom_y,mom_z));
-    fParticleGun->GeneratePrimaryVertex(anEvent);
+    fParticleGun->GeneratePrimaryVertex(anEvent);*/
+
+fGPS->GeneratePrimaryVertex(anEvent);
+
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
