@@ -102,7 +102,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct(){
 
     //** TODO: Insert the material definition here **//
 
-G4Material* Ge_mat = G4NistManager::Instance()->FindOrBuildMaterial("G4_Ge");
+G4Material* Si_mat = G4NistManager::Instance()->FindOrBuildMaterial("G4_Si");
 
 
 
@@ -115,26 +115,30 @@ G4Material* Ge_mat = G4NistManager::Instance()->FindOrBuildMaterial("G4_Ge");
 
 
     //** TODO: Insert the detector geometry here **//
-
+/*
     G4double crySize_z    =  1.*cm;
-    G4double crySize_mDz  =  18.*cm;
-    G4double crySize_pDz  =  20.*cm;
+    G4double crySize_mDz  =  2.*cm;
+    G4double crySize_pDz  =  2.1*cm;
 
     G4Paraboloid* crySolid = new G4Paraboloid("cry",
                                               crySize_z/2.,     //Half length Z
                                               crySize_mDz/2.,   //Radius at -Dz
                                               crySize_pDz/2.);  //Radius at +Dz greater than R1
+*/
 
-    //G4Tubs* crySolid = new G4Tubs("cry",
-    //  10.*cm,   // Inner radius
-    //  15.*cm,   // Outer radius
-    //  20.*cm,     // Half length in z
-    //  0.*rad,   // Starting phi angle in radians
-    //  2.*pi*rad);  // Angle of the segment in radians
+    G4double dE_t = 0.011 * mm;
+    G4double dE_r = 1.0 * cm;
+
+    G4Tubs* crySolid = new G4Tubs("cry",
+      0.*cm,   // Inner radius
+      dE_r,   // Outer radius
+      dE_t,     // Half length in z
+      0.*rad,   // Starting phi angle in radians
+      2.*pi*rad);  // Angle of the segment in radians
 
 
     G4LogicalVolume* cryLogic = new G4LogicalVolume(crySolid,   //its solid
-                                                    Ge_mat,     //its material
+                                                    Si_mat,     //its material
                                                     "cryLV");     //its name
 
 
@@ -144,13 +148,13 @@ G4Material* Ge_mat = G4NistManager::Instance()->FindOrBuildMaterial("G4_Ge");
   G4double r_0 = 11.*cm;
 
   //define a rotation matrix
-  /*G4double tetha  =   pi/2.*rad;
-  G4double phi    =   pi/4.*rad;*/
+  G4double tetha  =   165*deg;
+  //G4double phi    =   pi/4.*rad;
 
-	/*G4RotationMatrix* myRotationMatrix = new G4RotationMatrix();
-	myRotationMatrix ->  rotateX(tetha/2.);
-  myRotationMatrix ->  rotateY(-tetha/2.);
-  myRotationMatrix ->  rotateZ(phi);*/
+  G4RotationMatrix* myRotationMatrix = new G4RotationMatrix();
+	myRotationMatrix ->  rotateX(0.);
+  myRotationMatrix ->  rotateY(180.*deg - tetha);
+  myRotationMatrix ->  rotateZ(0.);
 
 
   // define a translation vector
@@ -158,11 +162,11 @@ G4Material* Ge_mat = G4NistManager::Instance()->FindOrBuildMaterial("G4_Ge");
                                         r_0*sin(tetha)*sin(phi),
                                         r_0*cos(phi) );*/
 
-G4ThreeVector posCry = G4ThreeVector( r_0,
+G4ThreeVector posCry = G4ThreeVector( r_0*sin(tetha),
                                       0.,
-                                      0.);
+                                      r_0*cos(tetha));
 
-  new G4PVPlacement(  0,             //no rotation
+  new G4PVPlacement(  myRotationMatrix,             //no rotation
                       posCry,         //at (0,0,0)
                       cryLogic,                //its logical volume
                       "cry",              //its name

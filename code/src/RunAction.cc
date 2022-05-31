@@ -60,7 +60,7 @@ RunAction::RunAction()
   //
 
   // Creating histograms
-  analysisManager->CreateH1("E_cry","Edep in crystal", 100, 0., 1.5*MeV);
+  analysisManager->CreateH1("E_cry","Edep in crystal", 12000, 0., 12000*keV);
   analysisManager->CreateH1("L_cry","trackL in crystal", 100, 0., 2*mm);
 
   // Creating ntuple

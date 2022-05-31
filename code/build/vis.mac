@@ -13,14 +13,15 @@
 
 #Draw a scene
 /vis/viewer/reset
-/vis/viewer/set/viewpointThetaPhi 135. 45. deg
-/vis/viewer/zoom 0.5
+/vis/viewer/set/viewpointThetaPhi 165. 60. deg
+/vis/viewer/zoom 1.5
 
 #Draw coordinate axes:
-/vis/scene/add/axes 0 0 0 1. m
+/vis/scene/add/axes 0 0 0 30. cm
 
 #Draw the detector
-/vis/geometry/set/colour World 0 0 0.5 1 .3
+#/vis/geometry/set/colour World 0 0 0.5 1 .3
+/vis/geometry/set/visibility World 0 false
 /vis/geometry/set/colour cryLV 0.5 1 0.9 0.8 1
 /vis/viewer/set/style surface
 
@@ -43,4 +44,4 @@
 
 #Geometry test (it can cause a "core dumped")
 /geometry/navigator/reset
-/geometry/test/run 
+/geometry/test/run

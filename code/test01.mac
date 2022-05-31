@@ -6,22 +6,48 @@
 
 /gps/pos/type Point
 /gps/pos/centre 0. 0. 0. cm
-#/gps/ang/type iso
-/gps/direction 1 0 0
-/gps/energy 10. MeV
-#
-/gps/particle alpha
+/gps/ang/type iso
+#/gps/direction 1 0 0
+/gps/energy 13.79 MeV
 
+#######################
+
+/gps/particle alpha
 /gps/pos/type Point
 /gps/pos/centre 0. 0. 0. cm
-#/gps/ang/type iso
-/gps/direction 1 0 0
-/gps/energy 5. MeV
+/gps/ang/type iso
+#/gps/direction 1 0 0
+/gps/energy 10.21 MeV
 
+#################################
 
+/gps/particle alpha
+/gps/pos/type Point
+/gps/pos/centre 0. 0. 0. cm
+/gps/ang/type iso
+#/gps/direction 1 0 0
+/gps/energy 7.58 MeV
+
+###################################
+
+/gps/particle alpha
+/gps/pos/type Point
+/gps/pos/centre 0. 0. 0. cm
+/gps/ang/type iso
+#/gps/direction 1 0 0
+/gps/energy 5.94 MeV
+
+###################################
+
+/gps/particle alpha
+/gps/pos/type Point
+/gps/pos/centre 0. 0. 0. cm
+/gps/ang/type iso
+#/gps/direction 1 0 0
+/gps/energy 5.38 MeV
 
 #########################
 #
 
 
-/run/beamOn 3
+/run/beamOn 5000000
