@@ -1,16 +1,20 @@
 # test01
-#
+# Alpha particle emissions in the 12C exited states (E_lab = 2.87)
 /run/initialize
 
-/gps/particle alpha
+###################################
 
+# Alpha_0
+/gps/particle alpha
 /gps/pos/type Point
 /gps/pos/centre 0. 0. 0. cm
 /gps/ang/type iso
 #/gps/direction 1 0 0
 /gps/energy 13.79 MeV
 
-#######################
+###################################
+
+# Alpha_1
 
 /gps/particle alpha
 /gps/pos/type Point
@@ -19,7 +23,9 @@
 #/gps/direction 1 0 0
 /gps/energy 10.21 MeV
 
-#################################
+###################################
+
+# Alpha_2
 
 /gps/particle alpha
 /gps/pos/type Point
@@ -30,6 +36,8 @@
 
 ###################################
 
+# Alpha_3
+
 /gps/particle alpha
 /gps/pos/type Point
 /gps/pos/centre 0. 0. 0. cm
@@ -39,6 +47,8 @@
 
 ###################################
 
+# Alpha_4
+
 /gps/particle alpha
 /gps/pos/type Point
 /gps/pos/centre 0. 0. 0. cm
@@ -46,8 +56,7 @@
 #/gps/direction 1 0 0
 /gps/energy 5.38 MeV
 
-#########################
-#
+###################################
 
 
-/run/beamOn 5000000
+/run/beamOn 1000000

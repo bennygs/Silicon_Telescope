@@ -176,6 +176,34 @@ G4ThreeVector posCry = G4ThreeVector( r_0*sin(tetha),
 
 
 
+G4double E_t = 0.300 * mm;
+G4double E_r = 1.0 * cm;
+
+G4Tubs* E_det_Solid = new G4Tubs("E_det",
+                                 0.*cm,   // Inner radius
+                                 E_r,   // Outer radius
+                                 E_t,     // Half length in z
+                                 0.*rad,   // Starting phi angle in radians
+                                 2.*pi*rad);  // Angle of the segment in radians
+
+
+G4LogicalVolume* E_det_Logic = new G4LogicalVolume(E_det_Solid,   //its solid
+                                                   Si_mat,     //its material
+                                                   "E_det_LV");     //its name
+G4double dE_E_dis = 1.*mm;
+
+G4ThreeVector posEdet = G4ThreeVector( (r_0 + dE_E_dis)*sin(tetha),
+                                      0.,
+                                      (r_0 + dE_E_dis)*cos(tetha));
+
+new G4PVPlacement(myRotationMatrix,     //no rotation
+                  posEdet,              //at (0,0,0)
+                  E_det_Logic,          //its logical volume
+                  "E_det",              //its name
+                  worldLogic,           //its mother  volume
+                  false,                //no boolean operation
+                  0);                   //copy number
+
     //***********//
 
     return worldPhysical;
