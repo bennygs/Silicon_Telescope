@@ -5,10 +5,15 @@
 ###################################
 
 # Alpha_0
+/gps/source/intensity 10
 /gps/particle alpha
 /gps/pos/type Point
 /gps/pos/centre 0. 0. 0. cm
 /gps/ang/type iso
+/gps/ang/mintheta 0 deg
+/gps/ang/maxtheta 40 deg
+/gps/ang/minphi 130 deg
+/gps/ang/maxphi 200 deg
 #/gps/direction 1 0 0
 /gps/energy 13.79 MeV
 
@@ -16,6 +21,7 @@
 
 # Alpha_1
 
+/gps/source/add 2
 /gps/particle alpha
 /gps/pos/type Point
 /gps/pos/centre 0. 0. 0. cm
@@ -27,6 +33,7 @@
 
 # Alpha_2
 
+/gps/source/add 2
 /gps/particle alpha
 /gps/pos/type Point
 /gps/pos/centre 0. 0. 0. cm
@@ -38,6 +45,7 @@
 
 # Alpha_3
 
+/gps/source/add 2
 /gps/particle alpha
 /gps/pos/type Point
 /gps/pos/centre 0. 0. 0. cm
@@ -49,6 +57,7 @@
 
 # Alpha_4
 
+/gps/source/add 2
 /gps/particle alpha
 /gps/pos/type Point
 /gps/pos/centre 0. 0. 0. cm
@@ -59,4 +68,4 @@
 ###################################
 
 
-/run/beamOn 1000000
+/run/beamOn 1
