@@ -235,6 +235,21 @@ void DetectorConstruction::ConstructSDandField(){
     cryDetector->RegisterPrimitive(primitive);
 
     SetSensitiveDetector("cryLV",cryDetector);
+
+    //***********//
+    // Definition of the Energy detector as a sensitive detector
+
+    auto E_Detector = new G4MultiFunctionalDetector("Edet");
+    G4SDManager::GetSDMpointer()->AddNewDetector(E_Detector);
+
+    primitive = new G4PSEnergyDeposit("Edep");
+    E_Detector->RegisterPrimitive(primitive);
+
+    primitive = new G4PSTrackLength("TrackLength");
+    primitive ->SetFilter(charged);
+    E_Detector->RegisterPrimitive(primitive);
+
+    SetSensitiveDetector("E_det_LV",E_Detector);
     //***********//
 }
 
